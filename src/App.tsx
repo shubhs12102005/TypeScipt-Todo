@@ -5,11 +5,17 @@ import AllTodos from './components/AllTodos'
 
 function App() {
 
-  const todos = [ { id: "1", text: "Shubham"} ]
+  const [todos, setTodos] = useState<{id: string, text: string}[]>([])
+
+  const addTodo = (text: string) => {
+    const id = Math.random().toString();
+    setTodos([ ...todos, { id, text }])
+  }
+
 
   return (
     <main className="flex flex-col items-center mt-4 min-h-screen gap-4">
-      <AddToDo />
+      <AddToDo addTodo={addTodo} />
       <AllTodos todos={todos} />
     </main>
   )
