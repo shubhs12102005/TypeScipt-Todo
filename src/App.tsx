@@ -9,14 +9,17 @@ function App() {
 
   const addTodo = (text: string) => {
     const id = Math.random().toString();
-    setTodos([ ...todos, { id, text }])
+    setTodos([ ...todos, { id, text }]);
   }
 
+  const deleteTodo = (id: string) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
 
   return (
     <main className="flex flex-col items-center mt-4 min-h-screen gap-4">
       <AddToDo addTodo={addTodo} />
-      <AllTodos todos={todos} />
+      <AllTodos todos={todos} deleteTodo={deleteTodo} />
     </main>
   )
 }

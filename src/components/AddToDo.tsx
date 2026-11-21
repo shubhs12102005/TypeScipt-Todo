@@ -20,7 +20,11 @@ const AddToDo = (props: Props) => {
 
             <button
                 className="border-2 border-gray-900 bg-orange-500 outline-none py-1 px-5 rounded-md"
-                onClick={() => props.addTodo(task)}
+                onClick={() => {
+                    props.addTodo(task);
+                    setTask("");
+                }}
+
             >
                 Add
             </button>
